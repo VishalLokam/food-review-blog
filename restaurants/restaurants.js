@@ -63,10 +63,10 @@ router.post("/", async ( req , res )=>{
 
     
     var city = req.body.city;
-    if (typeof city !== 'undefined'){
-        city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
+    // if (typeof city !== 'undefined'){
+    //     city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
 
-    }
+    // }
 
     const restaurant = new Restaurant({
         name: req.body.name,
