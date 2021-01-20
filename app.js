@@ -30,6 +30,8 @@ mongoose.connect("mongodb+srv://admin-vishal:root@cluster0.ilt7i.mongodb.net/foo
 
 //LISTEN TO THE SERVER
 
-app.listen(3000,()=>{
-    console.log("successfully stated the server");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
