@@ -19,7 +19,8 @@ app.use("/review", reviewRoute);
 
 
 //CONNECT TO THE DATABASE
-mongoose.connect("mongodb+srv://admin-vishal:root@cluster0.ilt7i.mongodb.net/foodreview?retryWrites=true&w=majority",     { useNewUrlParser: true, useUnifiedTopology: true }, 
+mongoose.connect(process.env.DB_CONNECTION,
+     { useNewUrlParser: true, useUnifiedTopology: true }, 
     ()=>{
         console.log("connected to db");
     }
