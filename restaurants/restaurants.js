@@ -59,7 +59,7 @@ router.get("/id/:restaurantId", async ( req , res )=>{
 
 //POST A RESTAURANT
 router.post("/", async ( req , res )=>{
-    console.log( req.body );
+    
 
     
     var city = req.body.city;
