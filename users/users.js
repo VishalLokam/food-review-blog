@@ -1,4 +1,5 @@
 const express = require("express");
+const md5 = require('md5');
 const router = express.Router();
 const User = require("../models/User.js");
 
@@ -26,14 +27,14 @@ router.get("/:userId", async ( req, res )=>{
 });
 
 //POST A USER
-router.post("/", async ( req , res )=>{
+router.post("/register", async ( req , res )=>{
     console.log( req.body );
     var city = req.body.city;
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
    
     const user = new User({
         username: req.body.username,
-        password: req.body.password,
+        password: md5(req.body.password),
         city: city
     });
     

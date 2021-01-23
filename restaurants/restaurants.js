@@ -1,4 +1,5 @@
 const express = require("express");
+const md5 = require('md5');
 const router = express.Router();
 const Restaurant = require("../models/Restaurant.js");
 
@@ -58,10 +59,7 @@ router.get("/id/:restaurantId", async ( req , res )=>{
 
 
 //POST A RESTAURANT
-router.post("/", async ( req , res )=>{
-    
-
-    
+router.post("/register", async ( req , res )=>{
     var city = req.body.city;
     if (typeof city !== 'undefined'){
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
@@ -71,7 +69,7 @@ router.post("/", async ( req , res )=>{
     const restaurant = new Restaurant({
         name: req.body.name,
         username: req.body.username,
-        password: req.body.password,
+        password: md5(req.body.password),
         address: req.body.address,
         city: city
     });
