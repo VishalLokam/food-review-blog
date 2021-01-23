@@ -60,6 +60,9 @@ router.get("/id/:restaurantId", async ( req , res )=>{
 
 //POST A RESTAURANT
 router.post("/register", async ( req , res )=>{
+    
+
+    
     var city = req.body.city;
     if (typeof city !== 'undefined'){
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
@@ -100,5 +103,15 @@ router.patch("/insertReview" , async ( req,res )=>{
 });
 
 
+router.post("/login", async ( req , res )=>{
+   
+    const restaurant = await Restaurant.find({username: req.body.username, password: md5(req.body.password)});
+    if(restaurant.length>=1){
+        res.json({message:"Login successful"});
+    }
+    else{
+        res.json({message:"Login failed"});
+    }
+});
 
 module.exports = router;

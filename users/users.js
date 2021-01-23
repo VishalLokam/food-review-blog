@@ -49,4 +49,15 @@ router.post("/register", async ( req , res )=>{
 });
 
 
+router.post("/login", async ( req , res )=>{
+   
+    const user = await User.find({username: req.body.username, password: md5(req.body.password)});
+    if(user.length>=1){
+        res.json({message:"Login successful"});
+    }
+    else{
+        res.json({message:"Login failed"});
+    }
+});
+
 module.exports = router;
