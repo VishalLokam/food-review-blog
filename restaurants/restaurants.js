@@ -58,13 +58,16 @@ router.get("/id/:restaurantId", async ( req , res )=>{
 
 
 
-//POST A RESTAURANT
+//REGISTER A RESTAURANT
 router.post("/register", async ( req , res )=>{
-    
+    const restaurant =  await Restaurant.find({username: req.body.username});
 
-    
-    var city = req.body.city;
-    if (typeof city !== 'undefined'){
+    if(Restaurant.length>=1){
+        res.json({message:"user exists"});
+    }
+    else{
+        var city = req.body.city;
+        if (typeof city !== 'undefined'){
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
 
     }
@@ -86,6 +89,10 @@ router.post("/register", async ( req , res )=>{
     }catch(err){
         res.json( { message: err } );
     }
+    }
+
+    
+    
 });
 
 
@@ -103,6 +110,7 @@ router.patch("/insertReview" , async ( req,res )=>{
 });
 
 
+// LOGIN FOR RESTAURANT
 router.post("/login", async ( req , res )=>{
    
     const restaurant = await Restaurant.find({username: req.body.username, password: md5(req.body.password)});
@@ -112,6 +120,24 @@ router.post("/login", async ( req , res )=>{
     else{
         res.json({message:"Login failed"});
     }
+});
+
+
+// PARTIAL TEXT SEARCH FOR SEARCHNG RESTAURANT NAME USING REGEX
+router.get("/search/:name" , async ( req , res )=>{
+    var name = req.params.name;
+    try{
+        const search = await Restaurant.find({
+            name: {
+                $regex:new RegExp(name,"i")
+            }
+        });
+        res.json(search); 
+    }
+    catch(err){
+        res.json( { message: err } );
+    }
+
 });
 
 module.exports = router;

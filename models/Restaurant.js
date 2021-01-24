@@ -22,7 +22,7 @@ const RestaurantSchema = mongoose.Schema({
         type: String,
         default: "Pune"
     },
-    review_id: [mongoose.ObjectId]
+    review_id: [mongoose.Schema.Types.ObjectId]
 });
 
 module.exports = mongoose.model('Restaurants', RestaurantSchema);

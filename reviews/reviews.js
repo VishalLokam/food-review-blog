@@ -29,22 +29,26 @@ router.get("/city/:city", async ( req , res )=>{
 
 
 //POST A REVIEW
-router.post("/", async (req,res)=>{
-    const randomId = mongoose.Types.ObjectId();
-    const restaurant = await Restaurant.find({_id: req.body.restaurant_id});
+router.post("/",  (req,res)=>{
+    const randomId = new mongoose.Types.ObjectId();
+    const restaurant_id1=req.body.restaurant_id;
+    const restaurant =  Restaurant.find({_id:restaurant_id1});
+    console.log(restaurant);
     const review = new Review({
         _id: randomId,
         title: req.body.title,
         review: req.body.review,
-        restaurant_id: req.body.restaurant_id,
+        restaurant_id: restaurant_id1,
         city: restaurant.city,
-        username: req.body.username,
-        restaurant_name: req.body.restaurant_name
+        restaurant_name: restaurant.name
     });
 
     try {
-        const savedReview = await review.save();
-        res.json( savedReview );
+        review.save();
+        Restaurant.updateOne( { _id: restaurant_id1 },
+            { $push: { review_id: randomId }
+        });
+        
     } catch (err) {
         res.json( { message: err } );     
     }

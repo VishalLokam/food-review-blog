@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const ReviewSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    
     title: {
         type: String,
         required: true,
@@ -17,13 +19,9 @@ const ReviewSchema = mongoose.Schema({
         type: String,
         default: "Pune"
     },
-    username: {
-        type: String,
-        required: true
-    },
+    
     restaurant_name:{
         type: String,
-        required: true
     },
     likes: {
         type: Number,
