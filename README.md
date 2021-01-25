@@ -7,33 +7,28 @@
 - Request body:- 
 ```
 {
-	"fullName": "",
-	"email": "",
-      	"username": "",
-        "password": "",
-      	"city": ""
+    "fullName": "",
+    "email": "",
+    "username": "",
+    "password": "",
+    "city": ""
 }
 ```
 *All the fields are required.*
 
 - Response:-
   - If user registration is successful
-  	```
-  	{
-     		"_id": "",
-     		"fullName": "",
-		"email": "",
-      		"username": "",
-        	"password": "",
-      		"city": ""
-  	}
- 	```
+  ```
+  {
+      "message": "User registration successful"
+  }
+  ```
   - If username already exists
- 	```
-  	{
-    		"message": "User exists"
-  	}
-  	```
+ ```
+  {
+      "message": "User exists"
+  }
+  ```
 
 #### User Login
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/login
@@ -41,64 +36,64 @@
 - Request body:- 
 ```
 {
-        "username": "",
-        "password": ""
+    "username": "",
+    "password": ""
 }
 ```
 *All the fields are required.*
 - Response:-
-  - If Login is successful
- 	```
-  		[
-    		{
-        		"city": "",
-        		"_id": "",
-        		"fullName": "",
-       			 "email": "",
-        		"username": "",
-        		"password": "",
-        		"__v": 
-    		}
-		]
-  	```
+  - If Login is successful, response user information is sent
+ ```
+  	[
+    	{
+            "city": "",
+            "_id": "",
+            "fullName": "",
+       	    "email": "",
+            "username": "",
+            "password": "",
+            "__v": 
+    	}
+	]
+  ```
   - If username is wrong
- 	```
-  	{
-    		"message": "Username not Found"
-  	}
-  	```
+ ```
+  {
+      "message": "Username not Found"
+  }
+  ```
   - If password is wrong
-  	```
-  	{
-    		"message": "password doesn't match"
-  	}
-  	```
+  ```
+  {
+      "message": "password doesn't match"
+  }
+  ```
 #### Get User Information by username
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/username/{name}	
 - Request Method:- GET
 - Response:- 
   - If username was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/user/username/scott
-	```
-		[
-    		{
-        		"city": "Hyderabad",
-        		"_id": "600ec4ff35b153000428df6c",
-        		"fullName": "Scott Wade",
-       			 "email": "scottwade@gmail.com",
-        		"username": "ScottWade",
-        		"password": "674f3c2c1a8a6f90461e8a66fb5550ba",
-        		"__v": 0
+  ```
+	[
+    	{
+            "city": "Hyderabad",
+            "_id": "600ec4ff35b153000428df6c",
+            "fullName": "Scott Wade",
+       	    "email": "scottwade@gmail.com",
+            "username": "ScottWade",
+            "password": "674f3c2c1a8a6f90461e8a66fb5550ba",
+            "__v": 0
     		}
 		]
-	```
-	*person with name scott is present in the database*
+  ```
+*person with name scott is present in the database*
   - If characters don't match:- https://obscure-fjord-67586.herokuapp.com/user/username/aliyah
-	```
-	{
-    		"message": "no user found"
-	}
-	```
-	*person with name aliyah is not present in the database*
+  ```
+  {
+      "message": "no user found"
+  }
+  ```
+*person with name aliyah is not present in the database*
 
 
 
