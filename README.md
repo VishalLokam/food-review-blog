@@ -24,7 +24,7 @@
   }
   ```
   - If username already exists
- ```
+  ```
   {
       "message": "User exists"
   }
@@ -44,7 +44,7 @@
 - Response:-
   - If Login is successful, response user information is sent
  ```
-  	[
+ [
     	{
             "city": "",
             "_id": "",
@@ -54,7 +54,7 @@
             "password": "",
             "__v": 
     	}
-	]
+  ]
   ```
   - If username is wrong
  ```
@@ -74,7 +74,7 @@
 - Response:- 
   - If username was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/user/username/scott
   ```
-	[
+  [
     	{
             "city": "Hyderabad",
             "_id": "600ec4ff35b153000428df6c",
@@ -84,7 +84,7 @@
             "password": "674f3c2c1a8a6f90461e8a66fb5550ba",
             "__v": 0
     		}
-		]
+  ]
   ```
 *person with name scott is present in the database*
   - If characters don't match:- https://obscure-fjord-67586.herokuapp.com/user/username/aliyah
