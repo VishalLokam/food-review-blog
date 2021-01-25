@@ -52,7 +52,7 @@ router.post("/register", async ( req , res )=>{
    
     const user = new User({
         fullName:   req.body.fullName,
-        email: toLowerCase(req.body.email),
+        email: req.body.email.toLowerCase(),
         username: req.body.username,
         password: md5(req.body.password),
         city: city
@@ -61,7 +61,7 @@ router.post("/register", async ( req , res )=>{
     
     try{
         const savedUser = await user.save();
-        res.json(savedUser);
+        res.json( { message: "User registration successful"} );
 
     }catch(err){
         res.json( { message: err } );
