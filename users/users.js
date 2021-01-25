@@ -52,7 +52,7 @@ router.post("/register", async ( req , res )=>{
    
     const user = new User({
         fullName:   req.body.fullName,
-        email: req.body.email,
+        email: toLowerCase(req.body.email),
         username: req.body.username,
         password: md5(req.body.password),
         city: city
