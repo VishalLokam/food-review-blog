@@ -18,16 +18,16 @@
 
 - Response:-
   - If user registration is successful
-  ```
-  {
-     	"_id": "",
-     	"fullName": "",
-	"email": "",
-      	"username": "",
-        "password": "",
-      	"city": ""
-  }
-  ```
+  	```
+  	{
+     		"_id": "",
+     		"fullName": "",
+		"email": "",
+      		"username": "",
+        	"password": "",
+      		"city": ""
+  	}
+ 	 ```
   - If username already exists
   ```
   {
@@ -47,27 +47,27 @@
 ```
 *All the fields are required.*
 - Response:-
-   - If Login is successful
-  ```
-  {
-    "message": "login successful"
-  }
-  ```
+  - If Login is successful
+ 	```
+  	{
+    		"message": "login successful"
+  	}
+  	```
   - If username is wrong
-  ```
-  {
-    "message": "Username not Found"
-  }
-  ```
+ 	```
+  	{
+    		"message": "Username not Found"
+  	}
+  	```
   - If password is wrong
-  ```
-  {
-    "message": "password doesn't match"
-  }
-  ```
+  	```
+  	{
+    		"message": "password doesn't match"
+  	}
+  	```
 #### Find User by username
-- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/username/<name>
-  *replace <name> with desired name to search*	
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/username{name}
+  *replace {name} with desired name to search*	
 - Request Method:- GET
 
 
