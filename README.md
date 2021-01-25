@@ -14,3 +14,16 @@
       	"city": ""
 }
 ```
+- Response:-
+  - If user registration is successful
+  ```
+  {
+    "message": "User registration successful"
+  }
+  ```
+  - If username already exists
+  ```
+  {
+    "message": "user exists"
+  }
+  ```
