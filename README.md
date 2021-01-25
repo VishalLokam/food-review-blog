@@ -83,7 +83,7 @@
             "username": "ScottWade",
             "password": "674f3c2c1a8a6f90461e8a66fb5550ba",
             "__v": 0
-    		}
+    	}
   ]
   ```
 *person with name scott is present in the database*
@@ -94,6 +94,32 @@
   }
   ```
 *person with name aliyah is not present in the database*
+
+#### Get User Information by id
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/id/{_id}
+- Request Method:- GET
+- Response:- 
+  - If user with is available:- https://obscure-fjord-67586.herokuapp.com/user/id/600ec4ff35b153000428df6c
+  ```
+  [
+    	{
+            "city": "Hyderabad",
+            "_id": "600ec4ff35b153000428df6c",
+            "fullName": "Scott Wade",
+       	    "email": "scottwade@gmail.com",
+            "username": "ScottWade",
+            "password": "674f3c2c1a8a6f90461e8a66fb5550ba",
+            "__v": 0
+    	}
+  ]
+  ```
+  - If id is not present
+  ```
+  {
+      "message": "no user found"
+  }
+  ```
+
 
 
 
