@@ -51,6 +51,8 @@ router.post("/register", async ( req , res )=>{
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
    
     const user = new User({
+        fullName:   req.body.fullName,
+        email: req.body.email,
         username: req.body.username,
         password: md5(req.body.password),
         city: city
