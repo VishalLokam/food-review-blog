@@ -7,10 +7,10 @@
 - Request body:- 
 ```
 {
-	"fullName": "Eva Haynes",
-	"email": "EvaHaynes@gmail.com",
-      	"username": "EvaHaynes",
-        "password": "5678",
-      	"city": "Hyderabad"
+	"fullName": "",
+	"email": "",
+      	"username": "",
+        "password": "",
+      	"city": ""
 }
 ```
