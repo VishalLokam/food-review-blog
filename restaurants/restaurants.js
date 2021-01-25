@@ -80,8 +80,6 @@ router.post("/register", async ( req , res )=>{
         city: city
     });
    
-    
-    
     try{
         const savedRestaurant = await restaurant.save();
         res.json(savedRestaurant);
@@ -89,10 +87,7 @@ router.post("/register", async ( req , res )=>{
     }catch(err){
         res.json( { message: err } );
     }
-    }
-
-    
-    
+    } 
 });
 
 

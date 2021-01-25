@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const ReviewSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     
     title: {
         type: String,
@@ -27,6 +26,7 @@ const ReviewSchema = mongoose.Schema({
         type: Number,
         default: 0
     }
+    
 });
 
 module.exports = mongoose.model('Reviews', ReviewSchema);

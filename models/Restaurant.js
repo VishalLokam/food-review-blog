@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const RestaurantSchema = mongoose.Schema({
-  
+
     name: {
         type: String,
         required: true
@@ -21,8 +21,8 @@ const RestaurantSchema = mongoose.Schema({
     city:{
         type: String,
         default: "Pune"
-    },
-    review_id: [mongoose.Schema.Types.ObjectId]
+    }
+    
 });
 
 module.exports = mongoose.model('Restaurants', RestaurantSchema);
