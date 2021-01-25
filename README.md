@@ -20,7 +20,12 @@
   - If user registration is successful
   ```
   {
-    "message": "User registration successful"
+     	"_id": "",
+     	"fullName": "",
+	"email": "",
+      	"username": "",
+        "password": "",
+      	"city": ""
   }
   ```
   - If username already exists
@@ -30,7 +35,7 @@
   }
   ```
 
-####User Login
+#### User Login
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/login
 - Request Method:- POST
 - Request body:- 
@@ -60,6 +65,10 @@
     "message": "password doesn't match"
   }
   ```
+#### Find User by username
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/username/<name>
+  *replace <name> with desired name to search*	
+- Request Method:- GET
 
 
 
