@@ -24,6 +24,7 @@
   - If username already exists
   ```
   {
-    "message": "user exists"
+    "message": "User exists"
   }
   ```
+all the fields are required.
