@@ -1,7 +1,7 @@
 # food-review-blog
 ## Usage 
 ### User
-#### Add user
+#### Add user/ Register user/ Signup user
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/register
 - Request Method:- POST
 - Request body:- 
@@ -41,17 +41,25 @@
 - Request body:- 
 ```
 {
-        "username": "sadsongs",
-        "password": "qwerty"
+        "username": "",
+        "password": ""
 }
 ```
 *All the fields are required.*
 - Response:-
   - If Login is successful
  	```
-  	{
-    		"message": "login successful"
-  	}
+  		[
+    		{
+        		"city": "Hyderabad",
+        		"_id": "600ec4ff35b153000428df6c",
+        		"fullName": "Scott Wade",
+       			 "email": "scottwade@gmail.com",
+        		"username": "ScottWade",
+        		"password": "674f3c2c1a8a6f90461e8a66fb5550ba",
+        		"__v": 0
+    		}
+		]
   	```
   - If username is wrong
  	```
@@ -65,14 +73,14 @@
     		"message": "password doesn't match"
   	}
   	```
-#### Find User by username
+#### Get User Information by username
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/username/{name}
   *replace {name} with desired name to search*	
 - Request Method:- GET
 - Response:- 
   - If username was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/user/username/scott
   	*person with name scott is present in the database*
-	````
+	```
 		[
     		{
         		"city": "Hyderabad",
@@ -84,9 +92,14 @@
         		"__v": 0
     		}
 		]
-	````
+	```
   - If characters don't match:- https://obscure-fjord-67586.herokuapp.com/user/username/aliyah
   	*person with name aliyah is not present in the database*
+	```
+	{
+    		"message": "no user found"
+	}
+	```
 
 
 
