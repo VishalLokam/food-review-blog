@@ -18,24 +18,42 @@ router.get("/", async ( req , res )=>{
 //GET A SEPCIFIC USER BY USERID
 router.get("/id/:userId", async ( req, res )=>{
     try{
-        const user = await User.findById( req.params.userId );
-        res.json(user);
+        const user = await User.find({_id: req.params.userId });
+        if(user.length>=1){
+            res.json(user);
+        }
+        else{
+            res.json({message: "no user found"});
+        }
+        
     }catch(err){
         res.json( { message: err } );
     }
 
 });
+
+
 
 //GET A SEPCIFIC USER BY USERNAME
-router.get("/username/:user", async ( req, res )=>{
+router.get("/username/:username", async ( req, res )=>{
     try{
-        const user = await User.find({username: req.params.userId});
-        res.json(user);
+        const name = req.params.username;
+        const regex = new RegExp(name, 'i')   //i is for case insensitivity
+        const user = await User.find( { username: { $regex: regex } } );
+        if(user.length>=1){
+            res.json(user);
+        }
+        else{
+            res.json({message: "no user found"});
+        }
+        
     }catch(err){
         res.json( { message: err } );
     }
 
 });
+
+
 
 //POST A USER
 router.post("/register", async ( req , res )=>{
@@ -77,12 +95,19 @@ router.post("/register", async ( req , res )=>{
 //LOGIN FOR USER
 router.post("/login", async ( req , res )=>{
    
-    const user = await User.find({username: req.body.username, password: md5(req.body.password)});
+    const user = await User.find({username: req.body.username });
     if(user.length>=1){
-        res.json({message:"Login successful"});
+        const userInfo =  await User.find({username: req.body.username, password: md5(req.body.password) });
+
+        if(userInfo.length>=1){
+            res.json(userInfo); 
+        }
+        else{
+            res.json({message:"password doesn't match"});
+        }
     }
     else{
-        res.json({message:"Login failed"});
+        res.json({message:"Username not Found"});
     }
 });
 
