@@ -166,8 +166,8 @@
 *All the fields are required.*
 - Response:-
   - If Login is successful, as a response restaurant information is sent
- ```
- [
+  ```
+  [
     {
         "_id": "",
         "restaurant_name": "",
@@ -178,10 +178,10 @@
         "seating": ,
         "__v": 
     }
-]
+  ]
   ```
   - If username is wrong
- ```
+  ```
   {
       "message": "Username not Found"
   }
@@ -248,7 +248,7 @@
   #### Get all the Restaurants in the City
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/city/{city_name}
 - Request Method:- GET
-- If restaurants in given city are available:- https://obscure-fjord-67586.herokuapp.com/user/id/restaurant/city/pune
+  - If restaurants in given city are available:- https://obscure-fjord-67586.herokuapp.com/user/id/restaurant/city/pune
   ```
   [
     {
