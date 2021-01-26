@@ -192,6 +192,34 @@
       "message": "Password doesn't match"
   }
   ```
+  
+  #### Get Restaurant Information by Restaurant name
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/search/{name}	
+- Request Method:- GET
+- Response:- 
+  - If username was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/restaurant/search/chandu
+  ```
+  [
+    {
+        "_id": "60103f3892f698db300f880d",
+        "restaurant_name": "Chandu Chai",
+        "username": "ccpune",
+        "password": "81dc9bdb52d04dc20036dbd8313ed055",
+        "address": "10th street, high lane",
+        "city": "Pune",
+        "seating": 10,
+        "__v": 0
+    }
+  ]
+  ```
+
+  - If characters don't match:- https://obscure-fjord-67586.herokuapp.com/restaurant/search/ziva
+  ```
+  {
+      "message": "No restaurant found"
+  }
+  ```
+
 
 
 
