@@ -65,7 +65,7 @@
   - If password is wrong
   ```
   {
-      "message": "password doesn't match"
+      "message": "Password doesn't match"
   }
   ```
 #### Get User Information by username
@@ -150,6 +150,46 @@
   ```
   {
       "message": "Username exists"
+  }
+  ```
+  
+  #### Restaurant Login
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/login
+- Request Method:- POST
+- Request body:- 
+```
+{
+    "username": "",
+    "password": ""
+}
+```
+*All the fields are required.*
+- Response:-
+  - If Login is successful, as a response restaurant information is sent
+ ```
+ [
+    {
+        "_id": "",
+        "restaurant_name": "",
+        "username": "",
+        "password": "",
+        "address": "",
+        "city": "",
+        "seating": ,
+        "__v": 
+    }
+]
+  ```
+  - If username is wrong
+ ```
+  {
+      "message": "Username not Found"
+  }
+  ```
+  - If password is wrong
+  ```
+  {
+      "message": "Password doesn't match"
   }
   ```
 
