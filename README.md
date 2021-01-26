@@ -99,7 +99,7 @@
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/id/{_id}
 - Request Method:- GET
 - Response:- 
-  - If user with is available:- https://obscure-fjord-67586.herokuapp.com/user/id/600ec4ff35b153000428df6c
+  - If user with given id is available:- https://obscure-fjord-67586.herokuapp.com/user/id/600ec4ff35b153000428df6c
   ```
   [
     	{
@@ -123,7 +123,7 @@
   
   
 ### Restaurant
-#### Add restaurant/ Register restaurant/ Signup restauratn
+#### Add restaurant/ Register restaurant/ Signup restaurant
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/register
 - Request Method:- POST
 - Request body:- 
@@ -194,10 +194,10 @@
   ```
   
   #### Get Restaurant Information by Restaurant name
-- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/search/{name}	
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/search/{restaurant_name}	
 - Request Method:- GET
 - Response:- 
-  - If username was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/restaurant/search/chandu
+  - If restaurant name was fully or partially correct:- https://obscure-fjord-67586.herokuapp.com/restaurant/search/chandu
   ```
   [
     {
@@ -217,6 +217,66 @@
   ```
   {
       "message": "No restaurant found"
+  }
+  ```
+  
+  #### Get Restaurant Information by id
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/id/{_id}
+- Request Method:- GET
+- Response:- 
+  - If user with given id is available:- https://obscure-fjord-67586.herokuapp.com/user/id/60103efd92f698db300f880c
+  ```
+  [
+    {
+        "_id": "60103efd92f698db300f880c",
+        "restaurant_name": "Hotel Taj Mahal",
+        "username": "htmdelhi",
+        "password": "d8578edf8458ce06fbc5bb76a58c5ca4",
+        "address": "12th street, view lane",
+        "city": "Pune",
+        "seating": 20,
+        "__v": 0
+    }
+  ]
+  ```
+  - If id is not present
+  ```
+  {
+      "message": "No restaurant found"
+  }
+  ```
+  #### Get all the Restaurants in the City
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/city/{city_name}
+- Request Method:- GET
+- If restaurants in given city are available:- https://obscure-fjord-67586.herokuapp.com/user/id/restaurant/city/pune
+  ```
+  [
+    {
+        "_id": "60103efd92f698db300f880c",
+        "restaurant_name": "Hotel Taj Mahal",
+        "username": "htmdelhi",
+        "password": "d8578edf8458ce06fbc5bb76a58c5ca4",
+        "address": "12th street, view lane",
+        "city": "Pune",
+        "seating": 20,
+        "__v": 0
+    },
+    {
+        "_id": "60103f3892f698db300f880d",
+        "restaurant_name": "Chandu Chai",
+        "username": "ccpune",
+        "password": "81dc9bdb52d04dc20036dbd8313ed055",
+        "address": "10th street, high lane",
+        "city": "Pune",
+        "seating": 10,
+        "__v": 0
+    }
+  ]
+  ```
+  - If there are no restaurants registered from the given city or name of the city is wrong 
+  ```
+  {
+      "message": "No restaurant found in this city or name of the city is wrong"
   }
   ```
 
