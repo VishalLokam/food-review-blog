@@ -42,7 +42,7 @@
 ```
 *All the fields are required.*
 - Response:-
-  - If Login is successful, response user information is sent
+  - If Login is successful, as a response user information is sent
  ```
  [
     	{
@@ -117,6 +117,39 @@
   ```
   {
       "message": "no user found"
+  }
+  ```
+  
+  
+  
+### Restaurant
+#### Add restaurant/ Register restaurant/ Signup restauratn
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/register
+- Request Method:- POST
+- Request body:- 
+```
+{
+        "restaurant_name": "",
+        "username": "",
+        "password": "",
+        "address": "",
+        "city": "",
+        "seating": 
+}
+```
+*All the fields are required. seating attribute takes a number*
+
+- Response:-
+  - If restaurant registration is successful
+  ```
+  {
+      "message": "Restaurant registration successful"
+  }
+  ```
+  - If username already exists
+  ```
+  {
+      "message": "Username exists"
   }
   ```
 
