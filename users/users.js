@@ -103,7 +103,7 @@ router.post("/login", async ( req , res )=>{
             res.json(userInfo); 
         }
         else{
-            res.json({message:"password doesn't match"});
+            res.json({message:"Password doesn't match"});
         }
     }
     else{

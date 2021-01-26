@@ -22,8 +22,13 @@ router.get("/city/:city", async ( req , res )=>{
     try{
         var city = req.params.city;
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
-        const restaurants = await Restaurant.find( { city: city } );
-        res.json( restaurants );
+        const restaurant = await Restaurant.find( { city: city } );
+        if(restaurant.length>=1){
+            res.json( restaurant );
+        }
+        else{
+            res.json( { message: "No restaurant found in this city or name of the city is wrong" } );
+        }
     }catch( err ){
         res.json( { message: err } );
     }
@@ -31,17 +36,6 @@ router.get("/city/:city", async ( req , res )=>{
 
 
 
-//GET RESTAURANT BY NAME
-router.get("/name/:name", async ( req , res )=>{
-    try{
-        const name = req.params.name;
-        const regex = new RegExp(name, 'i')   //i is for case insensitivity
-        const restaurants = await Restaurant.find( { name: { $regex: regex } } );
-        res.json( restaurants );
-    }catch( err ){
-        res.json( { message: err } );
-    }
-});
 
 
 
@@ -49,8 +43,14 @@ router.get("/name/:name", async ( req , res )=>{
 router.get("/id/:restaurantId", async ( req , res )=>{
     try{
       
-        const restaurants = await Restaurant.findById(req.params.restaurantId);
-        res.json( restaurants );
+        const restaurant = await Restaurant.find({_id: req.params.restaurantId});
+        if(restaurant.length>=1){
+            res.json(restaurant);
+        }
+        else{
+            res.json({message: "No restaurant found"});
+        }
+        
     }catch(err){
         res.json( { message: err } );
     }
@@ -62,8 +62,8 @@ router.get("/id/:restaurantId", async ( req , res )=>{
 router.post("/register", async ( req , res )=>{
     const restaurant =  await Restaurant.find({username: req.body.username});
 
-    if(Restaurant.length>=1){
-        res.json({message:"user exists"});
+    if(restaurant.length>=1){
+        res.json({message:"Username exists"});
     }
     else{
         var city = req.body.city;
@@ -73,16 +73,17 @@ router.post("/register", async ( req , res )=>{
     }
 
     const restaurant = new Restaurant({
-        name: req.body.name,
+        restaurant_name: req.body.restaurant_name,
         username: req.body.username,
         password: md5(req.body.password),
         address: req.body.address,
-        city: city
+        city: city,
+        seating: req.body.seating
     });
    
     try{
         const savedRestaurant = await restaurant.save();
-        res.json(savedRestaurant);
+        res.json({ message: "Restaurant registration successful" });
 
     }catch(err){
         res.json( { message: err } );
@@ -108,12 +109,19 @@ router.patch("/insertReview" , async ( req,res )=>{
 // LOGIN FOR RESTAURANT
 router.post("/login", async ( req , res )=>{
    
-    const restaurant = await Restaurant.find({username: req.body.username, password: md5(req.body.password)});
+    const restaurant = await Restaurant.find({username: req.body.username });
     if(restaurant.length>=1){
-        res.json({message:"Login successful"});
+        const userInfo =  await Restaurant.find({username: req.body.username, password: md5(req.body.password) });
+
+        if(userInfo.length>=1){
+            res.json(userInfo); 
+        }
+        else{
+            res.json({message:"Password doesn't match"});
+        }
     }
     else{
-        res.json({message:"Login failed"});
+        res.json({message:"Username not Found"});
     }
 });
 
@@ -123,11 +131,18 @@ router.get("/search/:name" , async ( req , res )=>{
     var name = req.params.name;
     try{
         const search = await Restaurant.find({
-            name: {
+            restaurant_name: {
                 $regex:new RegExp(name,"i")
             }
         });
-        res.json(search); 
+
+        if(search.length>=1){
+            res.json(search);
+        }
+        else{
+            res.json({message: "No restaurant found"});
+        }
+         
     }
     catch(err){
         res.json( { message: err } );
