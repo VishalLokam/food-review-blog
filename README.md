@@ -86,14 +86,14 @@
     	}
   ]
   ```
-*person with name scott is present in the database*
+  *person with name scott is present in the database*
   - If characters don't match:- https://obscure-fjord-67586.herokuapp.com/user/username/aliyah
   ```
   {
       "message": "no user found"
   }
   ```
-*person with name aliyah is not present in the database*
+  *person with name aliyah is not present in the database*
 
 #### Get User Information by id
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/id/{_id}
