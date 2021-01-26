@@ -16,7 +16,7 @@ const ReviewSchema = mongoose.Schema({
     },
     city: {
         type: String,
-        default: "Pune"
+        required: true
     },
     
     restaurant_name:{

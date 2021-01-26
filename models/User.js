@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
     },
     city:{
         type: String,
-        default: "Pune"
+        required: true
     }
     
 });

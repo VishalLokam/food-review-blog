@@ -20,7 +20,7 @@ const RestaurantSchema = mongoose.Schema({
     },
     city:{
         type: String,
-        default: "Pune"
+        required: true
     }
     
 });
