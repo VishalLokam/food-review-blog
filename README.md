@@ -56,13 +56,13 @@
     	}
   ]
   ```
-  - If username is wrong
+   - If username is wrong
  ```
   {
       "message": "Username not Found"
   }
   ```
-  - If password is wrong
+   - If password is wrong
   ```
   {
       "message": "Password doesn't match"
