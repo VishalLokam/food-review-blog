@@ -43,8 +43,8 @@
 *All the fields are required.*
 - Response:-
   - If Login is successful, as a response user information is sent
- ```
- [
+  ```
+  [
     	{
             "city": "",
             "_id": "",
@@ -54,15 +54,15 @@
             "password": "",
             "__v": 
     	}
-  ]
+   ]
+   ```
+  - If username is wrong
   ```
-   - If username is wrong
- ```
   {
       "message": "Username not Found"
   }
   ```
-   - If password is wrong
+  - If password is wrong
   ```
   {
       "message": "Password doesn't match"
