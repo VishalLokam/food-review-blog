@@ -248,7 +248,7 @@
   #### Get all the Restaurants in the City
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/city/{city_name}
 - Request Method:- GET
-  - If restaurants in given city are available:- https://obscure-fjord-67586.herokuapp.com/user/id/restaurant/city/pune
+  - If restaurants in given city are available:- https://obscure-fjord-67586.herokuapp.com/restaurant/city/pune
   ```
   [
     {
@@ -279,6 +279,68 @@
       "message": "No restaurant found in this city or name of the city is wrong"
   }
   ```
+
+### Review
+#### Add a review
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/review
+- Request Method:- POST
+- Request body:- 
+```
+{
+        "title": "",
+        "review": "",
+        "restaurant_id": ""
+          
+}
+```
+*All the fields are required.*
+
+- Response:-
+  - If review is successfully uploaded
+  ```
+  {
+      "message": "Review posted successfully"
+  }
+  ```
+  - If restaurant_id is wrong or restaurant notfound
+  ```
+  {
+      "message": "Restaurant not found or restaurant id is  wrong"
+  }
+  ```
+  
+ #### Get all the Reviews of restaurants in the City
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/review/city/{city_name}
+- Request Method:- GET
+  - If reviews in given city are available:- https://obscure-fjord-67586.herokuapp.com/restaurant/city/hyderabad
+  ```
+  [
+    {
+        "likes": 0,
+        "_id": "6010ea5f3dda7d28fdd38e25",
+        "title": "Honest Review pizza",
+        "review": "decent pizza, awesome shakes",
+        "restaurant_id": "60103fbf92f698db300f880e",
+        "city": "Hyderabad",
+        "__v": 0
+    },
+    {
+        "likes": 0,
+        "_id": "6010eaa53dda7d28fdd38e26",
+        "title": "Pizza review gone wrong",
+        "review": "meh!! whatever it was ok",
+        "restaurant_id": "60103fbf92f698db300f880e",
+        "city": "Hyderabad",
+        "__v": 0
+    }
+  ]
+  ```
+  - If there are no reviews for the restaurants in the city or name of the city is wrong 
+  ```
+  {
+      "message": "No review found in this city or name of the city is wrong"
+  }
+  ``` 
 
 
 
