@@ -224,10 +224,10 @@
   ```
   
   #### Get Restaurant Information by id
-- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/id/{_id}
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/restaurant/id/{_id}
 - Request Method:- GET
 - Response:- 
-  - If user with given id is available:- https://obscure-fjord-67586.herokuapp.com/user/id/60103efd92f698db300f880c
+  - If user with given id is available:- https://obscure-fjord-67586.herokuapp.com/restaurant/id/60103efd92f698db300f880c
   ```
   [
     {
