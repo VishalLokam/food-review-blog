@@ -1,5 +1,8 @@
 # food-review-blog
 ## Usage 
+[User](#user)
+[Restaurant](#restaurant)
+[Review](#review)
 ### User
 #### Add user/ Register user/ Signup user
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/user/register
