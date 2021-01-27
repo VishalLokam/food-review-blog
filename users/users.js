@@ -50,7 +50,7 @@ router.post("/register", async (req, res) => {
     const user = await User.find({ username: req.body.username });
 
     if (user.length >= 1) {
-        res.json({ message: "user exists" });
+        res.json({ message: "User exists" });
     } else {
         var city = req.body.city;
         city = city.charAt(0).toUpperCase() + city.substr(1).toLowerCase();
