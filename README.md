@@ -315,7 +315,7 @@
  #### Get all the Reviews of restaurants in the City
 - Request URL:-	 https://obscure-fjord-67586.herokuapp.com/review/city/{city_name}
 - Request Method:- GET
-  - If reviews in given city are available:- https://obscure-fjord-67586.herokuapp.com/restaurant/city/hyderabad
+  - If reviews in given city are available:- https://obscure-fjord-67586.herokuapp.com/review/city/hyderabad
   ```
   [
     {
