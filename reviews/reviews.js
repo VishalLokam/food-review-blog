@@ -33,26 +33,23 @@ router.get("/city/:city", async (req, res) => {
     }
 });
 
-
 //GET ALL REVIEWS OF A PARTICULAR RESTAURANT
 router.get("/:id", async (req, res) => {
     try {
         var id = req.params.id;
-        
-        const reviews = await Review.find({ _id: id });
+
+        const reviews = await Review.find({ restaurant_id: id });
         if (reviews.length >= 1) {
             res.json(reviews);
         } else {
             res.json({
-                message:
-                    "No review found for this restaurant",
+                message: "No review found for this restaurant",
             });
         }
     } catch (err) {
         res.json({ message: err });
     }
 });
-
 
 //POST A REVIEW
 router.post("/", async (req, res) => {
