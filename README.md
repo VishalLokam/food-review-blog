@@ -344,6 +344,30 @@
       "message": "No review found in this city or name of the city is wrong"
   }
   ``` 
+  
+  #### Get all the reviews of a particular restaurant
+- Request URL:-	 https://obscure-fjord-67586.herokuapp.com/review/{restaurant_id}
+- Request Method:- GET
+  - If reviews in given city are available:- https://obscure-fjord-67586.herokuapp.com/review/601e33c8237fc30004db6fc5
+  ```
+  [
+    {
+        "likes": 0,
+        "_id": "601e3505237fc30004db6fc6",
+        "title": "Honest review2!!!",
+        "review": "meh",
+        "restaurant_id": "601e33c8237fc30004db6fc5",
+        "city": "Pune",
+        "__v": 0
+    }
+  ]
+  ```
+  - If there are no reviews for the restaurant 
+  ```
+  {
+      "message": "No review found for this restaurant"
+  }
+  ``` 
 
 
 
